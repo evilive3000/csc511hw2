@@ -28,11 +28,7 @@ int main() {
     events.push(new Event(&land, &events));
 
     new Zebra(&land, &events, land.randomCell()->getId());
-//    new Zebra(&land, &events, land.randomCell()->getId());
-//    new Zebra(&land, &events, land.randomCell()->getId());
-//    new Zebra(&land, &events, land.randomCell()->getId());
-
-
+    new Zebra(&land, &events, land.randomCell()->getId());
 
     for (int k = 0; k < 2000; k++) {
         events.front()->selfProcess();

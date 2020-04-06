@@ -104,12 +104,3 @@ void Animal::reduceEnergy() {
 Cell *Animal::getCell() {
     return land->getCell(cellId);
 }
-
-//void Animal::birth() {
-//    cout << "|||||||||||||||||||||||||||||||||||||||||||||||" << endl;
-//    energy = min(energy, 0.5f);
-//    cout << (*this) << endl;
-//    Animal *animal = this->clone();
-//    animal->myCell()->getAnimalSet()->insert(animal);
-//    cout << animal << endl;
-//}

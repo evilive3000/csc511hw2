@@ -8,8 +8,6 @@ class Zebra : public Herbivore {
 public:
     Zebra(GrassLand *, queue<Event *> *, int);
 
-//    Zebra(Zebra &z);
-
 protected:
     float needGrass() override;
 
