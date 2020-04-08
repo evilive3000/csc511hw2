@@ -20,7 +20,7 @@ No offspring are yet created
 using namespace std;
 
 int main() {
-    int size = 7;
+    int size = 12;
     GrassLand land(size);   // object containing pointer to array of cells
     cout << "create|grassland|" << size << endl;
     queue<Event *> events;
@@ -30,7 +30,7 @@ int main() {
     new Zebra(&land, &events, land.randomCell()->getId());
     new Zebra(&land, &events, land.randomCell()->getId());
 
-    for (int k = 0; k < 2000; k++) {
+    for (int k = 0; k < 100000; k++) {
         events.front()->selfProcess();
     }
 }

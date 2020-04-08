@@ -4,10 +4,10 @@ using namespace std;
 
 int Cell::counter = 0;
 
-Cell::Cell() : grassLevel(20.0), animalSet(new set<Animal *>()), id(++counter) {}
+Cell::Cell() : grassLevel(1.0), animalSet(new set<Animal *>()), id(++counter) {}
 
 void Cell::growGrass() {
-    grassLevel = min(grassLevel + 0.055, 100.0);
+    grassLevel = min(grassLevel + 0.075, 100.0);
 }
 
 void Cell::reduceGrass(float amount) {

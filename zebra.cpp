@@ -7,11 +7,11 @@ int Zebra::lifeSpan() {
 }
 
 float Zebra::needGrass() {
-    return 10;
+    return 7;
 }
 
 int Zebra::prolif() {
-    return 15;
+    return 15 + (rand() % 10);
 }
 
 void Zebra::birth() {

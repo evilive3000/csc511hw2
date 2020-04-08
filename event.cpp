@@ -1,7 +1,5 @@
 #include <iostream>
 #include <queue>
-#include <unistd.h>
-
 #include "event.h"
 
 using namespace std;
@@ -19,6 +17,5 @@ void Event::selfProcess() {
 
     events->pop();
     events->push(this);
-    usleep(10000);
 }
 
