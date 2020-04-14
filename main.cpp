@@ -20,12 +20,10 @@ No offspring are yet created
 using namespace std;
 
 int main() {
-    int size = 12;
-    GrassLand land(size);
-    cout << "create|grassland|" << size << endl;
-
+    GrassLand land(12);
     Event::setGrassland(&land);
 
+    // Create non Animal Event;
     new Event();
 
     for (int i = 0; i < 20; i++) {

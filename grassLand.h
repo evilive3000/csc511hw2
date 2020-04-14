@@ -10,7 +10,9 @@ struct GrassLand {
     int size;
     Cell *g;
 
-    GrassLand(int size) : size(size), g(new Cell[size * size]) {}
+    GrassLand(int size) : size(size), g(new Cell[size * size]) {
+        cout << "create|grassland|" << size << endl;
+    }
 
     Cell *getCell(int id) {
         return &g[id];
