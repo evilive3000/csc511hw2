@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.10)
 project(grassland)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -17,4 +17,6 @@ add_executable(grassland
         herbivore.h
         main.cpp
         zebra.cpp
-        zebra.h antelope.h antelope.cpp)
+        zebra.h
+        antelope.h
+        antelope.cpp)

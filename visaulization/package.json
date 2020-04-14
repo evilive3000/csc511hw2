@@ -1,0 +1,12 @@
+{
+  "name": "grassland",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "ws": "^7.2.3"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "devDependencies": {}
+}
