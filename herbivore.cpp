@@ -1,6 +1,6 @@
 #include "herbivore.h"
 
-Herbivore::Herbivore(GrassLand *land, queue<Event *> *events, int cellId) : Animal(land, events, cellId) {}
+Herbivore::Herbivore(int species, int cellId) : Animal(species, cellId) {}
 
 void Herbivore::feed() {
     float grNeed = (1 - getEnergyLevel()) * needGrass();

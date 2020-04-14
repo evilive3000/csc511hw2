@@ -1,12 +1,11 @@
-#ifndef ZEBRA_T
-#define ZEBRA_T
+#ifndef GRASSLAND_ANTELOPE_H
+#define GRASSLAND_ANTELOPE_H
 
-#include<iostream>
 #include "herbivore.h"
 
-class Zebra : public Herbivore {
+class Antelope : public Herbivore {
 public:
-    Zebra(int);
+    Antelope(int);
 
 protected:
     float needGrass() override;
@@ -18,4 +17,5 @@ protected:
     int prolif() override;
 };
 
-#endif
+
+#endif //GRASSLAND_ANTELOPE_H

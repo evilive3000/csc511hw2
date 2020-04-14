@@ -17,4 +17,4 @@ add_executable(grassland
         herbivore.h
         main.cpp
         zebra.cpp
-        zebra.h)
+        zebra.h antelope.h antelope.cpp)

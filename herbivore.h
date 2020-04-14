@@ -13,7 +13,7 @@ protected:
     virtual float needGrass() = 0;
 
 public:
-    Herbivore(GrassLand *, queue<Event *> *, int);
+    Herbivore(int, int);
 
 };
 

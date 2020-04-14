@@ -1,17 +1,17 @@
 #include "zebra.h"
 
-Zebra::Zebra(GrassLand *land, queue<Event *> *events, int cellId) : Herbivore(land, events, cellId) {}
-
-int Zebra::lifeSpan() {
-    return 35 + (rand() % 20);
-}
+Zebra::Zebra(int cellId) : Herbivore(1, cellId) {}
 
 float Zebra::needGrass() {
-    return 7;
+    return 8;
+}
+
+int Zebra::lifeSpan() {
+    return 37 + rand() % 5;
 }
 
 int Zebra::prolif() {
-    return 15 + (rand() % 10);
+    return 12 + rand() % 10;
 }
 
 void Zebra::birth() {

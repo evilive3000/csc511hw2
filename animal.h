@@ -16,6 +16,7 @@ class Animal : public Event {
     int cellId;
     int id;
     int age = 0;
+    int species;
     float energy = 1.0f;
 protected:
     void increaseEnergy(float);
@@ -37,19 +38,15 @@ protected:
     bool isPregnant();
 
 public:
-    Animal(GrassLand *, queue<Event *> *, int);
+    Animal(int, int);
 
     Animal(Animal &a);
 
-    ~Animal();
-
-    void selfProcess() override;
+    int selfProcess() override;
 
     float getEnergyLevel();
 
     Cell *getCell();
-
-    void printState(string state);
 
     friend std::ostream &operator<<(std::ostream &out, Animal &animal);
 };

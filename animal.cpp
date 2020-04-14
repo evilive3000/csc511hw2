@@ -7,43 +7,31 @@ using namespace std;
 
 int Animal::counter = 0;
 
-Animal::Animal(GrassLand *land, queue<Event *> *events, int cellId)
-        : Event(land, events), id(++counter), cellId(cellId) {
-    getCell()->getAnimalSet()->insert(this);
-    events->push(this);
-    printState("create");
-}
+Animal::Animal(int species, int cellId) : id(++counter), species(species), cellId(cellId) {}
 
 // COPY CONSTRUCTOR
-Animal::Animal(Animal &a) : Event(a), cellId(a.cellId), id(++counter) {
-    getCell()->getAnimalSet()->insert(this);
-    a.events->push(this);
-    printState("create");
-}
+Animal::Animal(Animal &a) : id(++counter), species(a.species), cellId(a.cellId) {}
 
-Animal::~Animal() {
-    printState("delete");
-}
-
-void Animal::selfProcess() {
-    events->pop();
+int Animal::selfProcess() {
     age++;
     reduceEnergy();
 
-    if (isAlive()) {
-        move();
-        feed();
-        if (isPregnant()) birth();
-        events->push(this);
-        printState("update");
-    } else {
-        getCell()->getAnimalSet()->erase(this);
-        delete this;
+    // if not alive returns value greater then 0
+    if (!isAlive()) {
+        return 1;
     }
+
+    move();
+    feed();
+    if (isPregnant())
+        birth();
+
+    cout << "update|animal|" << *this << endl;
 }
 
+
 void Animal::move() {
-    int size = land->size;
+    int size = Animal::getGrassland()->size;
     int col = cellId % size;
     int row = cellId / size;
 
@@ -61,15 +49,11 @@ void Animal::move() {
     col = (col + size) % size;
 
     // remove from current cell
-    getCell()->getAnimalSet()->erase(this);
+//    getCell()->removeAnimal(this);
     // update cellId
     cellId = row * size + col;
     // add to new cell
-    getCell()->getAnimalSet()->insert(this);
-}
-
-void Animal::printState(string state) {
-    cout << state << "|animal|" << *this << endl;
+//    getCell()->addAnimal(this);
 }
 
 bool Animal::isAlive() {
@@ -80,7 +64,7 @@ bool Animal::isAlive() {
 
 bool Animal::isPregnant() {
     bool enoughEnergy = getEnergyLevel() > 0.5;
-    bool isProlif = age % prolif() == 0;
+    bool isProlif = (age % prolif()) == 0;
     return isProlif && enoughEnergy;
 }
 
@@ -89,7 +73,7 @@ float Animal::getEnergyLevel() {
 }
 
 std::ostream &operator<<(std::ostream &out, Animal &animal) {
-    cout << animal.id << ";" << animal.age << ";" << animal.energy << ";" << animal.cellId;
+    cout << animal.id << ";" << animal.age << ";" << animal.energy << ";" << animal.cellId << ";" << animal.species;
     return out;
 }
 
@@ -102,5 +86,5 @@ void Animal::reduceEnergy() {
 }
 
 Cell *Animal::getCell() {
-    return land->getCell(cellId);
+    return Animal::getGrassland()->getCell(cellId);
 }

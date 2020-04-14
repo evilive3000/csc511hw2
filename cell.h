@@ -12,7 +12,6 @@ class Cell {
     static int counter;
     int id;
     float grassLevel;
-    set<Animal *> *animalSet;
 public:
     Cell();
 
@@ -22,9 +21,9 @@ public:
 
     float getGrassLevel();
 
-    int getId();
-
-    set<Animal *> *getAnimalSet();
+    int getId() {
+        return id;
+    }
 };
 
 #endif

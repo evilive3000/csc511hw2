@@ -11,27 +11,30 @@ No offspring are yet created
 */
 
 #include <iostream>
-#include <queue>
 
 #include "grassLand.h"
 #include "event.h"
 #include "zebra.h"
+#include "antelope.h"
 
 using namespace std;
 
 int main() {
     int size = 12;
-    GrassLand land(size);   // object containing pointer to array of cells
+    GrassLand land(size);
     cout << "create|grassland|" << size << endl;
-    queue<Event *> events;
 
-    events.push(new Event(&land, &events));
+    Event::setGrassland(&land);
 
-    new Zebra(&land, &events, land.randomCell()->getId());
-    new Zebra(&land, &events, land.randomCell()->getId());
+    new Event();
 
-    for (int k = 0; k < 100000; k++) {
-        events.front()->selfProcess();
+    for (int i = 0; i < 20; i++) {
+        new Zebra(land.randomCell()->getId());
+        new Antelope(land.randomCell()->getId());
+    }
+
+    for (int k = 0; k < 500000; k++) {
+        Event::processNext();
     }
 }
 

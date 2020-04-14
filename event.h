@@ -3,19 +3,27 @@
 
 #include <iostream>
 #include <string>
-#include <queue>
+#include <deque>
 #include "grassLand.h"
 
 using namespace std;
 
 class Event {
-public:
-    GrassLand *land;
-    queue<Event *> *events;
-public:
-    Event(GrassLand *, queue<Event *> *);
+    static GrassLand *land;
+    static deque<Event *> *events;
 
-    virtual void selfProcess();
+    virtual int selfProcess();
+
+public:
+    Event();
+
+    static void setGrassland(GrassLand *);
+
+    static GrassLand *getGrassland();
+
+
+    static void processNext();
+
 };
 
 #endif
