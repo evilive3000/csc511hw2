@@ -18,3 +18,8 @@ cd ../visaulization/
 npm i
 npm run start
 ```
+
+## results
+![2 species](./results/pic1.png)
+
+![grassland animation](./results/30seconds.gif)
