@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-const cmd = '/home/evilive/CLionProjects/grassland/cmake-build-debug/grassland';
+const cmd = '../cmake-build/grassland';
 
 const runSimulations = (callback) => {
 

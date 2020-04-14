@@ -6,7 +6,7 @@
     "ws": "^7.2.3"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node node-server/index.js | google-chrome public/index.html"
   },
   "devDependencies": {}
 }
